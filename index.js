@@ -85,7 +85,6 @@ app.get("/rooms/:id", async (req, res) => {
     .collection("room")
     .find({ id: id })
     .toArray();
-  console.log(data);
   res.send(data);
 });
 
@@ -99,8 +98,6 @@ const checkRoomAvailable = async (bookingData) => {
   if (!getRoom) {
     return "No room present";
   }
-
-  console.log("getRoom", getRoom);
 
   let getBookingTime = await client
     .db("bookingApp")
@@ -145,8 +142,6 @@ const checkRoomAvailable = async (bookingData) => {
       ],
     })
     .toArray();
-
-  console.log("getBookingTime", getBookingTime);
 
   if (getBookingTime.length === 0) {
     return "No room Booked";
