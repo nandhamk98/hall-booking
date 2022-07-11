@@ -55,6 +55,7 @@ app.post("/create-room", async (req, res) => {
     .collection("room")
     .insertOne(data);
   res.send(data);
+  return;
 });
 
 // Api to create a bulk room
@@ -65,6 +66,7 @@ app.post("/bulk-create-room", async (req, res) => {
     .collection("room")
     .insertMany(data);
   res.send(response);
+  return;
 });
 
 // Api to get rooms data
@@ -75,6 +77,7 @@ app.get("/rooms", async (req, res) => {
     .find({})
     .toArray();
   res.send(data);
+  return;
 });
 
 // Api to get room data using id
@@ -86,6 +89,7 @@ app.get("/rooms/:id", async (req, res) => {
     .find({ id: id })
     .toArray();
   res.send(data);
+  return;
 });
 
 // To check room's availability
@@ -176,6 +180,7 @@ app.post("/book", async (req, res) => {
     }
   }
   res.send(response);
+  return;
 });
 
 // Api to get booked rooms data
@@ -212,6 +217,7 @@ app.get("/booked-rooms", async (req, res) => {
   });
 
   res.send(response);
+  return;
 });
 
 // Api to get customers dataa
@@ -250,6 +256,7 @@ app.get("/customers", async (req, res) => {
   });
 
   res.send(response);
+  return;
 });
 
 app.listen(PORT, () => {
